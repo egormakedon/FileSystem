@@ -1,16 +1,10 @@
-#include "commandvalidator/commandvalidator.h"
-#include "structheader/structHeader.h"
+#include "command.h"
 
 int main() {
-    struct filesystem filesystem;
     while(true) {
-        string command;
-        cin >> command;
-        if (validate(command)) {
-            /////
-        } else {
-            cout<<"wrong command\n";
-            continue;
-        }
+        char command[200];
+        cin.clear();
+        cin.getline(command, 200);
+        startCommand(command);
     }
 }

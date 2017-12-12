@@ -84,22 +84,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp">
+		<Unit filename="/home/egor/Документы/FileSystem/command.cpp">
 			<Option target="FileSystem"/>
 		</Unit>
-		<Unit filename="/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.h">
+		<Unit filename="/home/egor/Документы/FileSystem/command.h">
 			<Option target="FileSystem"/>
 		</Unit>
-		<Unit filename="/home/egor/Документы/FileSystem/initerloader/initerloader.cpp">
+		<Unit filename="/home/egor/Документы/FileSystem/init.cpp">
 			<Option target="FileSystem"/>
 		</Unit>
-		<Unit filename="/home/egor/Документы/FileSystem/initerloader/initerloader.h">
+		<Unit filename="/home/egor/Документы/FileSystem/init.h">
 			<Option target="FileSystem"/>
 		</Unit>
 		<Unit filename="/home/egor/Документы/FileSystem/main.cpp">
 			<Option target="FileSystem"/>
 		</Unit>
-		<Unit filename="/home/egor/Документы/FileSystem/structheader/structHeader.h">
+		<Unit filename="/home/egor/Документы/FileSystem/structHeader.h">
 			<Option target="FileSystem"/>
 		</Unit>
 		<Unit filename="/home/egor/Документы/FileSystem/CMakeLists.txt">

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp" "/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o"
-  "/home/egor/Документы/FileSystem/initerloader/initerloader.cpp" "/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o"
+  "/home/egor/Документы/FileSystem/command.cpp" "/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles/FileSystem.dir/command.cpp.o"
+  "/home/egor/Документы/FileSystem/init.cpp" "/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles/FileSystem.dir/init.cpp.o"
   "/home/egor/Документы/FileSystem/main.cpp" "/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles/FileSystem.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

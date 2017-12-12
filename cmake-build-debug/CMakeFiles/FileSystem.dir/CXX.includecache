@@ -6,19 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp
-commandvalidator.h
-/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.h
+/home/egor/Документы/FileSystem/command.cpp
+command.h
+/home/egor/Документы/FileSystem/command.h
 
-/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.h
-
-/home/egor/Документы/FileSystem/initerloader/initerloader.cpp
-initerloader.h
-/home/egor/Документы/FileSystem/initerloader/initerloader.h
-
-/home/egor/Документы/FileSystem/initerloader/initerloader.h
+/home/egor/Документы/FileSystem/command.h
+structHeader.h
+/home/egor/Документы/FileSystem/structHeader.h
 
 /home/egor/Документы/FileSystem/main.cpp
+command.h
+/home/egor/Документы/FileSystem/command.h
+
+/home/egor/Документы/FileSystem/structHeader.h
 iostream
+-
+cstring
+-
+string
 -
 

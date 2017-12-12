@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/FileSystem.dir/main.cpp.o"
-  "CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o"
-  "CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o"
+  "CMakeFiles/FileSystem.dir/command.cpp.o"
+  "CMakeFiles/FileSystem.dir/init.cpp.o"
   "FileSystem.pdb"
   "FileSystem"
 )
