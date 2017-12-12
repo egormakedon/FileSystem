@@ -96,6 +96,12 @@
 		<Unit filename="/home/egor/Документы/FileSystem/init.h">
 			<Option target="FileSystem"/>
 		</Unit>
+		<Unit filename="/home/egor/Документы/FileSystem/load.cpp">
+			<Option target="FileSystem"/>
+		</Unit>
+		<Unit filename="/home/egor/Документы/FileSystem/load.h">
+			<Option target="FileSystem"/>
+		</Unit>
 		<Unit filename="/home/egor/Документы/FileSystem/main.cpp">
 			<Option target="FileSystem"/>
 		</Unit>

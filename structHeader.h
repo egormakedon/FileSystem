@@ -4,6 +4,10 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include "init.h"
+#include "load.h"
+#include <regex>
+#include <boost/algorithm/string.hpp>
 using namespace std;
 
 struct filesystem {
@@ -11,7 +15,8 @@ struct filesystem {
 };
 
 struct header {
-
+    string filename;
+    string
 };
 
 struct fileblock {

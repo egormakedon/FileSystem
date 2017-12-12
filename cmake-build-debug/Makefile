@@ -177,6 +177,33 @@ init.cpp.s:
 	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/init.cpp.s
 .PHONY : init.cpp.s
 
+load.o: load.cpp.o
+
+.PHONY : load.o
+
+# target to build an object file
+load.cpp.o:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/load.cpp.o
+.PHONY : load.cpp.o
+
+load.i: load.cpp.i
+
+.PHONY : load.i
+
+# target to preprocess a source file
+load.cpp.i:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/load.cpp.i
+.PHONY : load.cpp.i
+
+load.s: load.cpp.s
+
+.PHONY : load.s
+
+# target to generate assembly for a file
+load.cpp.s:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/load.cpp.s
+.PHONY : load.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... init.o"
 	@echo "... init.i"
 	@echo "... init.s"
+	@echo "... load.o"
+	@echo "... load.i"
+	@echo "... load.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

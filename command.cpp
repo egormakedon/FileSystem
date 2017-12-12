@@ -15,7 +15,7 @@ void startCommand(string command) {
             ch = command[index];
         }
         if (command[index] == ' ' && index != 0 && command[index - 1] != ' ') {
-            commandType = command.substr(chIndex, command.length() - index - 1);
+            commandType = command.substr(chIndex, index - chIndex);
             message = command.substr(index + 1, command.length());
             break;
         }
@@ -36,15 +36,17 @@ void startCommand(string command) {
 }
 
 void commandFactory(int key, string message) {
-    if (!isFileSystemLoad()) {
+    if (!isFileSystemLoad() && key != 0 && key != 1) {
         cout<<"file system hasn't loaded\n";
         return;
     }
 
     switch (key) {
         case 0:
+            init(message, filesystem);
             break;
         case 1:
+            load(message, filesystem);
             break;
         case 2:
             break;
