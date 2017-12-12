@@ -150,6 +150,33 @@ command.cpp.s:
 	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/command.cpp.s
 .PHONY : command.cpp.s
 
+filecommand.o: filecommand.cpp.o
+
+.PHONY : filecommand.o
+
+# target to build an object file
+filecommand.cpp.o:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/filecommand.cpp.o
+.PHONY : filecommand.cpp.o
+
+filecommand.i: filecommand.cpp.i
+
+.PHONY : filecommand.i
+
+# target to preprocess a source file
+filecommand.cpp.i:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/filecommand.cpp.i
+.PHONY : filecommand.cpp.i
+
+filecommand.s: filecommand.cpp.s
+
+.PHONY : filecommand.s
+
+# target to generate assembly for a file
+filecommand.cpp.s:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/filecommand.cpp.s
+.PHONY : filecommand.cpp.s
+
 init.o: init.cpp.o
 
 .PHONY : init.o
@@ -243,6 +270,9 @@ help:
 	@echo "... command.o"
 	@echo "... command.i"
 	@echo "... command.s"
+	@echo "... filecommand.o"
+	@echo "... filecommand.i"
+	@echo "... filecommand.s"
 	@echo "... init.o"
 	@echo "... init.i"
 	@echo "... init.s"

@@ -43,22 +43,28 @@ void commandFactory(int key, string message) {
 
     switch (key) {
         case 0:
-            init(message, filesystem);
+            init(message);
             break;
         case 1:
             load(message, filesystem);
             break;
         case 2:
+            create();
             break;
         case 3:
+            remove();
             break;
         case 4:
+            copy();
             break;
         case 5:
+            move();
             break;
         case 6:
+            write();
             break;
         case 7:
+            read();
             break;
         default:
             cout<<"wrong command\n";

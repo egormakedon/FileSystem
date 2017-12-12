@@ -5,6 +5,6 @@
 #include "structHeader.h"
 using namespace std;
 
-void init(string message, struct filesystem fs);
+void init(string message);
 
 #endif

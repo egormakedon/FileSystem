@@ -4,21 +4,31 @@
 CMakeFiles/FileSystem.dir/command.cpp.o
  /home/egor/Документы/FileSystem/command.cpp
  /home/egor/Документы/FileSystem/command.h
+ /home/egor/Документы/FileSystem/filecommand.h
+ /home/egor/Документы/FileSystem/init.h
+ /home/egor/Документы/FileSystem/load.h
+ /home/egor/Документы/FileSystem/structHeader.h
+CMakeFiles/FileSystem.dir/filecommand.cpp.o
+ /home/egor/Документы/FileSystem/filecommand.cpp
+ /home/egor/Документы/FileSystem/filecommand.h
  /home/egor/Документы/FileSystem/init.h
  /home/egor/Документы/FileSystem/load.h
  /home/egor/Документы/FileSystem/structHeader.h
 CMakeFiles/FileSystem.dir/init.cpp.o
+ /home/egor/Документы/FileSystem/filecommand.h
  /home/egor/Документы/FileSystem/init.cpp
  /home/egor/Документы/FileSystem/init.h
  /home/egor/Документы/FileSystem/load.h
  /home/egor/Документы/FileSystem/structHeader.h
 CMakeFiles/FileSystem.dir/load.cpp.o
+ /home/egor/Документы/FileSystem/filecommand.h
  /home/egor/Документы/FileSystem/init.h
  /home/egor/Документы/FileSystem/load.cpp
  /home/egor/Документы/FileSystem/load.h
  /home/egor/Документы/FileSystem/structHeader.h
 CMakeFiles/FileSystem.dir/main.cpp.o
  /home/egor/Документы/FileSystem/command.h
+ /home/egor/Документы/FileSystem/filecommand.h
  /home/egor/Документы/FileSystem/init.h
  /home/egor/Документы/FileSystem/load.h
  /home/egor/Документы/FileSystem/main.cpp

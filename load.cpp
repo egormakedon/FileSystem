@@ -12,11 +12,20 @@ void load(string message, struct filesystem fs) {
     }
 
     if (regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        string filename = strings[0].substr(1, strings[0].length() - 1);
-        //проверка, если есть файл
-        fs.fileSystemName = filename;
+        string filename = "bin/";
+        filename.append(strings[0].substr(1, strings[0].length() - 2));
+
+        ifstream fin(filename);
+        if (fin.is_open()) {
+            fin.close();
+            fs.fileSystemName = filename;
+            return;
+        } else {
+            cout<<filename<<" doesn't exist\n";
+            return;
+        }
     } else {
-        cout<<"wrong command\n";
+        cout<<"wrong filename: "<<strings[0]<<endl;
         return;
     }
 }

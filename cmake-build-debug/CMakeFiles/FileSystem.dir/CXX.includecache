@@ -14,6 +14,16 @@ command.h
 structHeader.h
 /home/egor/Документы/FileSystem/structHeader.h
 
+/home/egor/Документы/FileSystem/filecommand.cpp
+filecommand.h
+/home/egor/Документы/FileSystem/filecommand.h
+
+/home/egor/Документы/FileSystem/filecommand.h
+structHeader.h
+/home/egor/Документы/FileSystem/structHeader.h
+iostream
+-
+
 /home/egor/Документы/FileSystem/init.cpp
 init.h
 /home/egor/Документы/FileSystem/init.h
@@ -51,6 +61,10 @@ load.h
 /home/egor/Документы/FileSystem/load.h
 regex
 -
+fstream
+-
+filecommand.h
+/home/egor/Документы/FileSystem/filecommand.h
 boost/algorithm/string.hpp
 -
 
