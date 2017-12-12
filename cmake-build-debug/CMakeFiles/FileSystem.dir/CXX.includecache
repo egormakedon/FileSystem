@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp
+commandvalidator.h
+/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.h
+
+/home/egor/Документы/FileSystem/commandvalidator/commandvalidator.h
+
+/home/egor/Документы/FileSystem/initerloader/initerloader.cpp
+initerloader.h
+/home/egor/Документы/FileSystem/initerloader/initerloader.h
+
+/home/egor/Документы/FileSystem/initerloader/initerloader.h
+
 /home/egor/Документы/FileSystem/main.cpp
 iostream
 -

@@ -3,4 +3,4 @@ project(FileSystem)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(FileSystem main.cpp)
+add_executable(FileSystem main.cpp initerloader/initerloader.h initerloader/initerloader.cpp structheader/structHeader.h commandvalidator/commandvalidator.h commandvalidator/commandvalidator.cpp)

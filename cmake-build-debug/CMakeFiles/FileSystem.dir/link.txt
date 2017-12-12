@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/FileSystem.dir/main.cpp.o  -o FileSystem 
+/usr/bin/c++  -g   CMakeFiles/FileSystem.dir/main.cpp.o CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o  -o FileSystem 

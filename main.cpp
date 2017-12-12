@@ -1,6 +1,16 @@
-#include <iostream>
+#include "commandvalidator/commandvalidator.h"
+#include "structheader/structHeader.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    struct filesystem filesystem;
+    while(true) {
+        string command;
+        cin >> command;
+        if (validate(command)) {
+            /////
+        } else {
+            cout<<"wrong command\n";
+            continue;
+        }
+    }
 }

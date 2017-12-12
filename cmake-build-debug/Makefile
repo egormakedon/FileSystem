@@ -123,6 +123,60 @@ FileSystem/fast:
 	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/build
 .PHONY : FileSystem/fast
 
+commandvalidator/commandvalidator.o: commandvalidator/commandvalidator.cpp.o
+
+.PHONY : commandvalidator/commandvalidator.o
+
+# target to build an object file
+commandvalidator/commandvalidator.cpp.o:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o
+.PHONY : commandvalidator/commandvalidator.cpp.o
+
+commandvalidator/commandvalidator.i: commandvalidator/commandvalidator.cpp.i
+
+.PHONY : commandvalidator/commandvalidator.i
+
+# target to preprocess a source file
+commandvalidator/commandvalidator.cpp.i:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.i
+.PHONY : commandvalidator/commandvalidator.cpp.i
+
+commandvalidator/commandvalidator.s: commandvalidator/commandvalidator.cpp.s
+
+.PHONY : commandvalidator/commandvalidator.s
+
+# target to generate assembly for a file
+commandvalidator/commandvalidator.cpp.s:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.s
+.PHONY : commandvalidator/commandvalidator.cpp.s
+
+initerloader/initerloader.o: initerloader/initerloader.cpp.o
+
+.PHONY : initerloader/initerloader.o
+
+# target to build an object file
+initerloader/initerloader.cpp.o:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o
+.PHONY : initerloader/initerloader.cpp.o
+
+initerloader/initerloader.i: initerloader/initerloader.cpp.i
+
+.PHONY : initerloader/initerloader.i
+
+# target to preprocess a source file
+initerloader/initerloader.cpp.i:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.i
+.PHONY : initerloader/initerloader.cpp.i
+
+initerloader/initerloader.s: initerloader/initerloader.cpp.s
+
+.PHONY : initerloader/initerloader.s
+
+# target to generate assembly for a file
+initerloader/initerloader.cpp.s:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.s
+.PHONY : initerloader/initerloader.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... FileSystem"
+	@echo "... commandvalidator/commandvalidator.o"
+	@echo "... commandvalidator/commandvalidator.i"
+	@echo "... commandvalidator/commandvalidator.s"
+	@echo "... initerloader/initerloader.o"
+	@echo "... initerloader/initerloader.i"
+	@echo "... initerloader/initerloader.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

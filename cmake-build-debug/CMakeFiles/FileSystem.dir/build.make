@@ -81,17 +81,69 @@ CMakeFiles/FileSystem.dir/main.cpp.o.provides: CMakeFiles/FileSystem.dir/main.cp
 CMakeFiles/FileSystem.dir/main.cpp.o.provides.build: CMakeFiles/FileSystem.dir/main.cpp.o
 
 
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o: CMakeFiles/FileSystem.dir/flags.make
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o: ../initerloader/initerloader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o -c /home/egor/Документы/FileSystem/initerloader/initerloader.cpp
+
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/Документы/FileSystem/initerloader/initerloader.cpp > CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.i
+
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/Документы/FileSystem/initerloader/initerloader.cpp -o CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.s
+
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.requires:
+
+.PHONY : CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.requires
+
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.provides: CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.provides.build
+.PHONY : CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.provides
+
+CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.provides.build: CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o
+
+
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o: CMakeFiles/FileSystem.dir/flags.make
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o: ../commandvalidator/commandvalidator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o -c /home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp
+
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp > CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.i
+
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/Документы/FileSystem/commandvalidator/commandvalidator.cpp -o CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.s
+
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.requires:
+
+.PHONY : CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.requires
+
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.provides: CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.provides.build
+.PHONY : CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.provides
+
+CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.provides.build: CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o
+
+
 # Object files for target FileSystem
 FileSystem_OBJECTS = \
-"CMakeFiles/FileSystem.dir/main.cpp.o"
+"CMakeFiles/FileSystem.dir/main.cpp.o" \
+"CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o" \
+"CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o"
 
 # External object files for target FileSystem
 FileSystem_EXTERNAL_OBJECTS =
 
 FileSystem: CMakeFiles/FileSystem.dir/main.cpp.o
+FileSystem: CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o
+FileSystem: CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o
 FileSystem: CMakeFiles/FileSystem.dir/build.make
 FileSystem: CMakeFiles/FileSystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable FileSystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable FileSystem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FileSystem.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -100,6 +152,8 @@ CMakeFiles/FileSystem.dir/build: FileSystem
 .PHONY : CMakeFiles/FileSystem.dir/build
 
 CMakeFiles/FileSystem.dir/requires: CMakeFiles/FileSystem.dir/main.cpp.o.requires
+CMakeFiles/FileSystem.dir/requires: CMakeFiles/FileSystem.dir/initerloader/initerloader.cpp.o.requires
+CMakeFiles/FileSystem.dir/requires: CMakeFiles/FileSystem.dir/commandvalidator/commandvalidator.cpp.o.requires
 
 .PHONY : CMakeFiles/FileSystem.dir/requires
 
