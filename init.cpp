@@ -16,27 +16,22 @@ void init(string message) {
         return;
     }
     if (regex_match(strings[1], regex(NUMBER_REGEXP))) {
-        int number = stoi(strings[1]);
-        if (number >= 5) {
-            string filename = "bin/";
-            filename.append(strings[0].substr(1, strings[0].length() - 2));
+        string filename = "../bin/";
+        filename.append(strings[0].substr(1, strings[0].length() - 2));
+        ifstream fin(filename);
 
-            ifstream fin(filename);
-            if (!fin.is_open()) {
+        if (!fin.is_open()) {
+            FILE *file = fopen(filename.c_str(), "w+b");
+            int number = ceil((double)stoi(strings[1]) / (double)BLOCK_SIZE) * 2;
 
-                //////
-                ofstream fout(filename, ios_base::binary);
-                int count = ceil(number / 5);
-                fout.close();
-                //////
-
-            } else {
-                fin.close();
-                cout<<filename<<" already exist\n";
-                return;
+            for (int index = 0; index < number; index++) {
+                struct block b;
+                fwrite(&b, sizeof(struct block), 1, file);
             }
+            fclose(file);
         } else {
-            cout<<"small size for filesystem\n";
+            fin.close();
+            cout << filename << " already exist\n";
             return;
         }
     } else {

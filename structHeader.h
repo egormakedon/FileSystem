@@ -12,26 +12,23 @@
 #include <boost/algorithm/string.hpp>
 using namespace std;
 
+const int MAX_FILENAME_LENGTH = 6;
+const int BLOCK_SIZE = 16;
+
 struct filesystem {
     string fileSystemName = "";
 };
 
-struct header {
-    int size;
-    int freeSize;
-    struct fileDescriptor* descriptors;
+struct descriptor {
+    char filename[MAX_FILENAME_LENGTH];
+    int firstBlockIndex;
+    bool isFree = true;
 };
 
-struct fileDescriptor {
-    string filename = "";
-    int firstBlock;
-};
-
-struct fileblock {
-    int blockNum;
-    int nextBlockNum = -1;
-    int size = 5;
-    char info[5];
+struct block {
+    int blockIndex;
+    int nextBlockIndex;
+    char value[BLOCK_SIZE];
 };
 
 #endif

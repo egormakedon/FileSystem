@@ -12,7 +12,7 @@ void load(string message, struct filesystem fs) {
     }
 
     if (regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        string filename = "bin/";
+        string filename = "../bin/";
         filename.append(strings[0].substr(1, strings[0].length() - 2));
 
         ifstream fin(filename);
