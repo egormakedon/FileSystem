@@ -25,7 +25,32 @@ void create(string message, struct filesystem fs) {
         return;
     }
 
-    //////
+    string fileSystemName = fs.fileSystemName;
+    int fd = open(fileSystemName.c_str(), O_RDWR);
+    int len = lseek(fd, 0, SEEK_END);
+
+    int index = 0;
+    while (index < len / 2) {
+        block b;
+        lseek(fd, index, SEEK_SET);
+        read(fd, &b, sizeof(b));
+
+        descriptor d;
+        memcpy(&d, &b.value, BLOCK_SIZE);
+
+        if (d.isFree == true) {
+            d.isFree = false;
+            memcpy(&d.filename, filename.c_str(), sizeof(filename.c_str()));
+            memcpy(&b.value, &d, BLOCK_SIZE);
+            lseek(fd, index, SEEK_SET);
+            write(fd, &b, sizeof(b));
+            break;
+        }
+
+        index += sizeof(b);
+    }
+
+    close(fd);
 }
 
 void remove(string message, struct filesystem fs) {
