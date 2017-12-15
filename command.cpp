@@ -47,7 +47,7 @@ void commandFactory(int key, string message) {
             init(message);
             break;
         case 1:
-            load(message, fs);
+            fs.fileSystemName = load(message, fs);
             break;
         case 2:
             create(message, fs);

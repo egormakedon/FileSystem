@@ -5,6 +5,7 @@
 #include "structHeader.h"
 using namespace std;
 
+void readFileSystem(struct filesystem fs);
 vector<string> takeArgs(string message);
 bool isFileExist(string filename, struct filesystem fs);
 bool isFreeFileExist(struct filesystem fs);

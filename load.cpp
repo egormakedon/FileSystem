@@ -1,11 +1,11 @@
 #include "load.h"
 
-void load(string message, struct filesystem fs) {
+string load(string message, struct filesystem fs) {
     vector<string> strings = takeArgs(message);
 
     if (strings.size() != 1) {
         cout<<"wrong command\n";
-        return;
+        return "";
     }
 
     if (regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
@@ -14,15 +14,14 @@ void load(string message, struct filesystem fs) {
 
         ifstream fin(filename);
         if (fin.is_open()) {
-            fs.fileSystemName = filename;
             fin.close();
-            return;
+            return filename;
         } else {
             cout<<filename<<" doesn't exist\n";
-            return;
+            return "";
         }
     } else {
         cout<<"wrong filename: "<<strings[0]<<endl;
-        return;
+        return "";
     }
 }

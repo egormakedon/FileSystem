@@ -10,6 +10,9 @@
 #include <fstream>
 #include "filecommand.h"
 #include <boost/algorithm/string.hpp>
+#include <sys/io.h>
+#include <stdio.h>
+#include <fcntl.h>
 #include "commonfunc.h"
 using namespace std;
 

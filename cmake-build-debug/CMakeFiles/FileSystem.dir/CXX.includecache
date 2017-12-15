@@ -79,6 +79,12 @@ filecommand.h
 /home/egor/Документы/FileSystem/filecommand.h
 boost/algorithm/string.hpp
 -
+sys/io.h
+-
+stdio.h
+-
+fcntl.h
+-
 commonfunc.h
 /home/egor/Документы/FileSystem/commonfunc.h
 

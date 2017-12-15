@@ -19,24 +19,23 @@ void init(string message) {
         ifstream fin(filename);
 
         if (!fin.is_open()) {
-            FILE *file = fopen(filename.c_str(), "w+b");
+            int fd = open(filename.c_str(), O_RDWR | O_CREAT);
 
             int number = ceil((double)stoi(strings[1]) / (double)BLOCK_SIZE) * 2;
             int half = number / 2;
-
             block *b = new block[number];
 
             for (int index = 0; index < half; index++) {
                 descriptor d;
                 b[index].freeSpace = 0;
-                ////write(d, sizeof(struct descriptor), 1, b[index].value);
+                memcpy(&b[index].value, &d, BLOCK_SIZE);
             }
 
             for (int index = 0; index < number; index++) {
                 b[index].blockIndex = index;
-                fwrite(b, sizeof(struct block), 1, file);
+                write(fd, &b[index], sizeof(b[index]));
             }
-            fclose(file);
+            close(fd);
         } else {
             fin.close();
             cout << filename << " already exist\n";
