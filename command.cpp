@@ -53,23 +53,22 @@ void commandFactory(int key, string message) {
             create(message, fs);
             break;
         case 3:
-            remove();
+            remove(message, fs);
             break;
         case 4:
-            copy();
+            copy(message, fs);
             break;
         case 5:
-            move();
+            move(message, fs);
             break;
         case 6:
-            write();
+            write(message, fs);
             break;
         case 7:
-            read();
+            read(message, fs);
             break;
         case 8:
-            exit();
-            break;
+            exit(0);
         default:
             cout<<"wrong command\n";
             break;

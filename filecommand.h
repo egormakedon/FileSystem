@@ -6,11 +6,10 @@
 using namespace std;
 
 void create(string message, struct filesystem fs);
-void remove();
-void copy();
-void move();
-void write();
-void read();
-void exit();
+void remove(string message, struct filesystem fs);
+void copy(string message, struct filesystem fs);
+void move(string message, struct filesystem fs);
+void write(string message, struct filesystem fs);
+void read(string message, struct filesystem fs);
 
 #endif
