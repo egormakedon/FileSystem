@@ -12,10 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce7005a4-fee3-4f5a-aaed-8c0bbaa70cd6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/commonfunc.cpp" afterPath="$PROJECT_DIR$/commonfunc.cpp" />
-      <change beforePath="$PROJECT_DIR$/commonfunc.h" afterPath="$PROJECT_DIR$/commonfunc.h" />
       <change beforePath="$PROJECT_DIR$/filecommand.cpp" afterPath="$PROJECT_DIR$/filecommand.cpp" />
-      <change beforePath="$PROJECT_DIR$/structHeader.h" afterPath="$PROJECT_DIR$/structHeader.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,9 +28,12 @@
       <file leaf-file-name="filecommand.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/filecommand.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="651">
+              <caret line="157" column="22" lean-forward="false" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="22" />
+              <folding>
+                <element signature="e#26#1318#0" expanded="false" />
+                <element signature="e#1320#1854#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -41,8 +41,8 @@
       <file leaf-file-name="commonfunc.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commonfunc.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state relative-caret-position="-609">
+              <caret line="65" column="56" lean-forward="false" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
@@ -91,9 +91,9 @@
         <option value="$PROJECT_DIR$/init.cpp" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/structHeader.h" />
-        <option value="$PROJECT_DIR$/filecommand.cpp" />
         <option value="$PROJECT_DIR$/commonfunc.h" />
         <option value="$PROJECT_DIR$/commonfunc.cpp" />
+        <option value="$PROJECT_DIR$/filecommand.cpp" />
       </list>
     </option>
   </component>
@@ -196,7 +196,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72276000" />
+    <option name="totallyTimeSpent" value="72803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1922" height="1049" extended-state="6" />
@@ -242,7 +242,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#1318#0" expanded="false" />
+            <element signature="e#1320#1854#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -318,7 +321,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#1318#0" expanded="false" />
+            <element signature="e#1320#1854#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -382,7 +388,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#26#1318#0" expanded="false" />
+            <element signature="e#1320#1854#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -398,7 +407,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#1318#0" expanded="false" />
+            <element signature="e#1320#1854#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -437,7 +449,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#26#1318#0" expanded="false" />
+            <element signature="e#1320#1854#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -605,8 +620,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commonfunc.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="-609">
+          <caret line="65" column="56" lean-forward="false" selection-start-line="65" selection-start-column="56" selection-end-line="65" selection-end-column="56" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
@@ -615,9 +630,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/filecommand.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="651">
+          <caret line="157" column="22" lean-forward="false" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="22" />
+          <folding>
+            <element signature="e#26#1318#0" expanded="false" />
+            <element signature="e#1320#1854#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

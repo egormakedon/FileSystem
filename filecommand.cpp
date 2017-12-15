@@ -135,7 +135,32 @@ void move(string message, struct filesystem fs) {
         return;
     }
 
-    //// изменить имя
+    string fileSystemName = fs.fileSystemName;
+    int fd = open(fileSystemName.c_str(), O_RDWR);
+    int len = lseek(fd, 0, SEEK_END);
+
+    int index = 0;
+    while (index < len / 2) {
+        block b;
+        lseek(fd, index, SEEK_SET);
+        read(fd, &b, sizeof(b));
+
+        descriptor d;
+        memcpy(&d, &b.value, BLOCK_SIZE);
+
+        if (d.isFree == false) {
+            if (strcmp(d.filename, filename.c_str()) == 0) {
+                memcpy(&d.filename, newFileName.c_str(), sizeof(newFileName.c_str()));
+                memcpy(&b.value, &d, BLOCK_SIZE);
+                lseek(fd, index, SEEK_SET);
+                write(fd, &b, sizeof(b));
+                close(fd);
+                break;
+            }
+        }
+
+        index += sizeof(b);
+    }
 }
 
 void write(string message, struct filesystem fs) {
