@@ -13,9 +13,11 @@
 #include "commonfunc.h"
 using namespace std;
 
-const int MAX_FILENAME_LENGTH = 10;
+const int MAX_FILENAME_LENGTH = 6;
 const int BLOCK_SIZE = 16;
+
 const string FILE_NAME_REGEXP = "\".{1,10}\"";
+const string DATA_MESSAGE_REGEXP = "\".+\"";
 
 #define EMPTY_FILE -2
 #define LAST_BLOCK -1
@@ -28,6 +30,7 @@ struct filesystem {
 struct descriptor {
     char filename[MAX_FILENAME_LENGTH];
     int firstBlockIndex = EMPTY_FILE;
+    bool isFree = true;
 };
 
 struct block {

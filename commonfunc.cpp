@@ -11,7 +11,7 @@ bool isFileExist(string filename, struct filesystem fs) {
     ////
 }
 
-bool isFreeBlockExist(struct filesystem fs) {
+bool isFreeFileExist(struct filesystem fs) {
     ////
 }
 

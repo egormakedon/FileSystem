@@ -20,12 +20,21 @@ void init(string message) {
 
         if (!fin.is_open()) {
             FILE *file = fopen(filename.c_str(), "w+b");
+
             int number = ceil((double)stoi(strings[1]) / (double)BLOCK_SIZE) * 2;
+            int half = number / 2;
+
+            block *b = new block[number];
+
+            for (int index = 0; index < half; index++) {
+                descriptor d;
+                b[index].freeSpace = 0;
+                ////write(d, sizeof(struct descriptor), 1, b[index].value);
+            }
 
             for (int index = 0; index < number; index++) {
-                struct block b;
-                b.blockIndex = index;
-                fwrite(&b, sizeof(struct block), 1, file);
+                b[index].blockIndex = index;
+                fwrite(b, sizeof(struct block), 1, file);
             }
             fclose(file);
         } else {
