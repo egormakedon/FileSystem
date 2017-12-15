@@ -73,8 +73,7 @@ void remove(string message, struct filesystem fs) {
         return;
     }
 
-    //// search header
-    /////// recursive delete
+    removeFunc(filename, fs);
 }
 
 void copy(string message, struct filesystem fs) {
