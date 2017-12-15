@@ -10,10 +10,16 @@
 #include <fstream>
 #include "filecommand.h"
 #include <boost/algorithm/string.hpp>
+#include "commonfunc.h"
 using namespace std;
 
-const int MAX_FILENAME_LENGTH = 6;
+const int MAX_FILENAME_LENGTH = 10;
 const int BLOCK_SIZE = 16;
+const string FILE_NAME_REGEXP = "\".{1,10}\"";
+
+#define EMPTY_FILE -2
+#define LAST_BLOCK -1
+#define FREE_BLOCK BLOCK_SIZE
 
 struct filesystem {
     string fileSystemName = "";
@@ -21,14 +27,14 @@ struct filesystem {
 
 struct descriptor {
     char filename[MAX_FILENAME_LENGTH];
-    int firstBlockIndex;
-    bool isFree = true;
+    int firstBlockIndex = EMPTY_FILE;
 };
 
 struct block {
     int blockIndex;
-    int nextBlockIndex;
+    int nextBlockIndex = LAST_BLOCK;
     char value[BLOCK_SIZE];
+    int freeSpace = FREE_BLOCK;
 };
 
 #endif

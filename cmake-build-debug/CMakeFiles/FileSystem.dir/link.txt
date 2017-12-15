@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/FileSystem.dir/main.cpp.o CMakeFiles/FileSystem.dir/command.cpp.o CMakeFiles/FileSystem.dir/init.cpp.o CMakeFiles/FileSystem.dir/load.cpp.o CMakeFiles/FileSystem.dir/filecommand.cpp.o  -o FileSystem 
+/usr/bin/c++  -g   CMakeFiles/FileSystem.dir/main.cpp.o CMakeFiles/FileSystem.dir/command.cpp.o CMakeFiles/FileSystem.dir/init.cpp.o CMakeFiles/FileSystem.dir/load.cpp.o CMakeFiles/FileSystem.dir/filecommand.cpp.o CMakeFiles/FileSystem.dir/commonfunc.cpp.o  -o FileSystem 

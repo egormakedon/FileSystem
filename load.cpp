@@ -1,10 +1,7 @@
 #include "load.h"
 
 void load(string message, struct filesystem fs) {
-    string FILE_NAME_REGEXP = "\".+\"";
-
-    vector<string> strings;
-    boost::split(strings, message, boost::is_any_of(" "));
+    vector<string> strings = takeArgs(message);
 
     if (strings.size() != 1) {
         cout<<"wrong command\n";
@@ -17,8 +14,8 @@ void load(string message, struct filesystem fs) {
 
         ifstream fin(filename);
         if (fin.is_open()) {
-            fin.close();
             fs.fileSystemName = filename;
+            fin.close();
             return;
         } else {
             cout<<filename<<" doesn't exist\n";

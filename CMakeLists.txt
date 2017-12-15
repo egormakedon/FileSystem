@@ -3,4 +3,4 @@ project(FileSystem)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(FileSystem main.cpp structHeader.h command.h command.cpp init.h init.cpp load.h load.cpp filecommand.h filecommand.cpp)
+add_executable(FileSystem main.cpp structHeader.h command.h command.cpp init.h init.cpp load.h load.cpp filecommand.h filecommand.cpp commonfunc.h commonfunc.cpp)

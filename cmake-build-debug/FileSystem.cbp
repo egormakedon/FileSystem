@@ -90,6 +90,12 @@
 		<Unit filename="/home/egor/Документы/FileSystem/command.h">
 			<Option target="FileSystem"/>
 		</Unit>
+		<Unit filename="/home/egor/Документы/FileSystem/commonfunc.cpp">
+			<Option target="FileSystem"/>
+		</Unit>
+		<Unit filename="/home/egor/Документы/FileSystem/commonfunc.h">
+			<Option target="FileSystem"/>
+		</Unit>
 		<Unit filename="/home/egor/Документы/FileSystem/filecommand.cpp">
 			<Option target="FileSystem"/>
 		</Unit>

@@ -150,6 +150,33 @@ command.cpp.s:
 	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/command.cpp.s
 .PHONY : command.cpp.s
 
+commonfunc.o: commonfunc.cpp.o
+
+.PHONY : commonfunc.o
+
+# target to build an object file
+commonfunc.cpp.o:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commonfunc.cpp.o
+.PHONY : commonfunc.cpp.o
+
+commonfunc.i: commonfunc.cpp.i
+
+.PHONY : commonfunc.i
+
+# target to preprocess a source file
+commonfunc.cpp.i:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commonfunc.cpp.i
+.PHONY : commonfunc.cpp.i
+
+commonfunc.s: commonfunc.cpp.s
+
+.PHONY : commonfunc.s
+
+# target to generate assembly for a file
+commonfunc.cpp.s:
+	$(MAKE) -f CMakeFiles/FileSystem.dir/build.make CMakeFiles/FileSystem.dir/commonfunc.cpp.s
+.PHONY : commonfunc.cpp.s
+
 filecommand.o: filecommand.cpp.o
 
 .PHONY : filecommand.o
@@ -270,6 +297,9 @@ help:
 	@echo "... command.o"
 	@echo "... command.i"
 	@echo "... command.s"
+	@echo "... commonfunc.o"
+	@echo "... commonfunc.i"
+	@echo "... commonfunc.s"
 	@echo "... filecommand.o"
 	@echo "... filecommand.i"
 	@echo "... filecommand.s"

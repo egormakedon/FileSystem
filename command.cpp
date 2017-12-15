@@ -1,6 +1,6 @@
 #include "command.h"
 
-struct filesystem filesystem;
+struct filesystem fs;
 
 void startCommand(string command) {
     string commandType;
@@ -31,12 +31,13 @@ void startCommand(string command) {
     if (commandType == "move") key = 5;
     if (commandType == "write") key = 6;
     if (commandType == "read") key = 7;
+    if (command == "exit") key = 8;
 
     commandFactory(key, message);
 }
 
 void commandFactory(int key, string message) {
-    if (!isFileSystemLoad() && key != 0 && key != 1) {
+    if (!isFileSystemLoad() && key != 0 && key != 1 && key != 8) {
         cout<<"file system hasn't loaded\n";
         return;
     }
@@ -46,10 +47,10 @@ void commandFactory(int key, string message) {
             init(message);
             break;
         case 1:
-            load(message, filesystem);
+            load(message, fs);
             break;
         case 2:
-            create();
+            create(message, fs);
             break;
         case 3:
             remove();
@@ -66,6 +67,9 @@ void commandFactory(int key, string message) {
         case 7:
             read();
             break;
+        case 8:
+            exit();
+            break;
         default:
             cout<<"wrong command\n";
             break;
@@ -73,7 +77,7 @@ void commandFactory(int key, string message) {
 }
 
 bool isFileSystemLoad() {
-    string s = filesystem.fileSystemName;
+    string s = fs.fileSystemName;
     if (!s.compare("") == 0) {
         return true;
     } else {

@@ -5,11 +5,12 @@
 #include <iostream>
 using namespace std;
 
-void create();
+void create(string message, struct filesystem fs);
 void remove();
 void copy();
 void move();
 void write();
 void read();
+void exit();
 
 #endif

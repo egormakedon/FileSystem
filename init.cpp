@@ -1,11 +1,9 @@
 #include "init.h"
 
 void init(string message) {
-    string FILE_NAME_REGEXP = "\".+\"";
     string NUMBER_REGEXP = "\\d+";
 
-    vector<string> strings;
-    boost::split(strings, message, boost::is_any_of(" "));
+    vector<string> strings = takeArgs(message);
 
     if (strings.size() != 2) {
         cout<<"wrong command\n";
@@ -26,6 +24,7 @@ void init(string message) {
 
             for (int index = 0; index < number; index++) {
                 struct block b;
+                b.blockIndex = index;
                 fwrite(&b, sizeof(struct block), 1, file);
             }
             fclose(file);
