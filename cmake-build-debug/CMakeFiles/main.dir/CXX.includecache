@@ -6,19 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/egor/Документы/FileSystem/command.cpp
-command.h
-/home/egor/Документы/FileSystem/command.h
-
 /home/egor/Документы/FileSystem/command.h
 structHeader.h
 /home/egor/Документы/FileSystem/structHeader.h
-
-/home/egor/Документы/FileSystem/commonfunc.cpp
-boost/algorithm/string/classification.hpp
--
-commonfunc.h
-/home/egor/Документы/FileSystem/commonfunc.h
 
 /home/egor/Документы/FileSystem/commonfunc.h
 iostream
@@ -26,35 +16,17 @@ iostream
 structHeader.h
 /home/egor/Документы/FileSystem/structHeader.h
 
-/home/egor/Документы/FileSystem/filecommand.cpp
-filecommand.h
-/home/egor/Документы/FileSystem/filecommand.h
-regex
--
-string
--
-iostream
--
-
 /home/egor/Документы/FileSystem/filecommand.h
 structHeader.h
 /home/egor/Документы/FileSystem/structHeader.h
 iostream
 -
 
-/home/egor/Документы/FileSystem/init.cpp
-init.h
-/home/egor/Документы/FileSystem/init.h
-
 /home/egor/Документы/FileSystem/init.h
 iostream
 -
 structHeader.h
 /home/egor/Документы/FileSystem/structHeader.h
-
-/home/egor/Документы/FileSystem/load.cpp
-load.h
-/home/egor/Документы/FileSystem/load.h
 
 /home/egor/Документы/FileSystem/load.h
 iostream

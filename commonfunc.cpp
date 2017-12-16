@@ -314,7 +314,7 @@ string read(int blocIndex, struct filesystem fs, string result) {
     if (b.nextBlockIndex != LAST_BLOCK) {
         read(b.nextBlockIndex, fs, result);
     } else {
-        result.insert(result.length(), "\n");
+        //result.insert(result.length(), "\n");
         return result;
     }
 }

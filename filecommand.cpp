@@ -1,19 +1,24 @@
 #include "filecommand.h"
+#include <regex>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 void create(string message, struct filesystem fs) {
-    vector<string> strings = takeArgs(message);
+//    vector<string> strings = takeArgs(message);
+//
+//    if (strings.size() != 1) {
+//        cout << "wrong command\n";
+//        return;
+//    }
 
-    if (strings.size() != 1) {
-        cout << "wrong command\n";
+    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
+        cout << "wrong filename: " << message << endl;
         return;
     }
 
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        cout << "wrong filename: " << strings[0] << endl;
-        return;
-    }
-
-    string filename = strings[0].substr(1, strings[0].length() - 2);
+    string filename = message.substr(1, message.length() - 2);
 
     if (isFileExist(filename, fs)) {
         cout << filename << " already exist\n";
@@ -54,19 +59,19 @@ void create(string message, struct filesystem fs) {
 }
 
 void remove(string message, struct filesystem fs) {
-    vector<string> strings = takeArgs(message);
+//    vector<string> strings = takeArgs(message);
+//
+//    if (strings.size() != 1) {
+//        cout<<"wrong command\n";
+//        return;
+//    }
 
-    if (strings.size() != 1) {
-        cout<<"wrong command\n";
+    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
+        cout<<"wrong filename: "<<message<<endl;
         return;
     }
 
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<strings[0]<<endl;
-        return;
-    }
-
-    string filename = strings[0].substr(1, strings[0].length() - 2);
+    string filename = message.substr(1, message.length() - 2);
 
     if (!isFileExist(filename, fs)) {
         cout << filename << " doesn't exist\n";
@@ -77,19 +82,19 @@ void remove(string message, struct filesystem fs) {
 }
 
 void copy(string message, struct filesystem fs) {
-    vector<string> strings = takeArgs(message);
+//    vector<string> strings = takeArgs(message);
+//
+//    if (strings.size() != 1) {
+//        cout<<"wrong command\n";
+//        return;
+//    }
 
-    if (strings.size() != 1) {
-        cout<<"wrong command\n";
+    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
+        cout<<"wrong filename: "<<message<<endl;
         return;
     }
 
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<strings[0]<<endl;
-        return;
-    }
-
-    string filename = strings[0].substr(1, strings[0].length() - 2);
+    string filename = message.substr(1, message.length() - 2);
 
     if (!isFileExist(filename, fs)) {
         cout << filename << " doesn't exist\n";
@@ -122,15 +127,21 @@ void copy(string message, struct filesystem fs) {
     message1.insert(message1.length(), readFunc(filename, fs));
     message1.insert(message1.length(), "\"");
     write(message1, fs);
+    cout<<endl;
 }
 
 void move(string message, struct filesystem fs) {
-    vector<string> strings = takeArgs(message);
+    string strings[2];
 
-    if (strings.size() != 2) {
-        cout<<"wrong command\n";
-        return;
+    cmatch m;
+    regex e(DATA_MESSAGE_REGEXP);
+
+    int index1 = -1;
+    while (regex_search(message.c_str(), m, e)) {
+        ++index1;
+        strings[index1] = m[index1];
     }
+
 
     if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
         cout<<"wrong filename: "<<strings[0]<<endl;
@@ -184,12 +195,17 @@ void move(string message, struct filesystem fs) {
 }
 
 void write(string message, struct filesystem fs) {
-    vector<string> strings = takeArgs(message);
+    string strings[2];
 
-    if (strings.size() != 2) {
-        cout<<"wrong command\n";
-        return;
+    cmatch m;
+    regex e(DATA_MESSAGE_REGEXP);
+
+    int index1 = -1;
+    while (regex_search(message.c_str(), m, e)) {
+        ++index1;
+        strings[index1] = m[index1];
     }
+
 
     if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
         cout << "wrong filename: " << strings[0] << endl;
@@ -213,19 +229,19 @@ void write(string message, struct filesystem fs) {
 }
 
 void read(string message, struct filesystem fs) {
-    vector<string> strings = takeArgs(message);
+//    vector<string> strings = takeArgs(message);
+//
+//    if (strings.size() != 1) {
+//        cout<<"wrong command\n";
+//        return;
+//    }
 
-    if (strings.size() != 1) {
-        cout<<"wrong command\n";
+    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
+        cout << "wrong filename: " << message << endl;
         return;
     }
 
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        cout << "wrong filename: " << strings[0] << endl;
-        return;
-    }
-
-    string filename = strings[0].substr(1, strings[0].length() - 2);
+    string filename = message.substr(1, message.length() - 2);
 
     if (!isFileExist(filename, fs)) {
         cout << filename << " doesn't exist\n";

@@ -16,10 +16,10 @@
 #include "commonfunc.h"
 using namespace std;
 
-const int MAX_FILENAME_LENGTH = 6;
-const int BLOCK_SIZE = 16;
-const string FILE_NAME_REGEXP = "\".{1,6}\"";
-const string DATA_MESSAGE_REGEXP = "\".+\"";
+const int MAX_FILENAME_LENGTH = 36;
+const int BLOCK_SIZE = 46;
+const string FILE_NAME_REGEXP = "\".{1,36}\"";
+const string DATA_MESSAGE_REGEXP = "(\".+?\")|(\\s\".+\")";
 
 #define EMPTY_FILE -2
 #define LAST_BLOCK -1

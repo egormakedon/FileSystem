@@ -60,6 +60,80 @@ CMAKE_SOURCE_DIR = /home/egor/Документы/FileSystem
 CMAKE_BINARY_DIR = /home/egor/Документы/FileSystem/cmake-build-debug
 
 #=============================================================================
+# Target rules for target CMakeFiles/starter.dir
+
+# All Build rule for target.
+CMakeFiles/starter.dir/all:
+	$(MAKE) -f CMakeFiles/starter.dir/build.make CMakeFiles/starter.dir/depend
+	$(MAKE) -f CMakeFiles/starter.dir/build.make CMakeFiles/starter.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles --progress-num=10,11 "Built target starter"
+.PHONY : CMakeFiles/starter.dir/all
+
+# Include target in all.
+all: CMakeFiles/starter.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/starter.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/starter.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/starter.dir/rule
+
+# Convenience name for target.
+starter: CMakeFiles/starter.dir/rule
+
+.PHONY : starter
+
+# clean rule for target.
+CMakeFiles/starter.dir/clean:
+	$(MAKE) -f CMakeFiles/starter.dir/build.make CMakeFiles/starter.dir/clean
+.PHONY : CMakeFiles/starter.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/starter.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/main.dir
+
+# All Build rule for target.
+CMakeFiles/main.dir/all:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles --progress-num=8,9 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
+
+# Include target in all.
+all: CMakeFiles/main.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egor/Документы/FileSystem/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/main.dir/rule
+
+# Convenience name for target.
+main: CMakeFiles/main.dir/rule
+
+.PHONY : main
+
+# clean rule for target.
+CMakeFiles/main.dir/clean:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/main.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/FileSystem.dir
 
 # All Build rule for target.
