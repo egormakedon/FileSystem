@@ -1,48 +1,56 @@
 #include "init.h"
 
 void init(string message) {
-    string NUMBER_REGEXP = "\\d+";
+    cmatch m;
+    regex e1(FILE_NAME_REGEXP);
+    regex e2(NUMBER_REGEXP);
 
-    vector<string> strings = takeArgs(message);
+    string strings[2];
+    strings[0] = "";
+    strings[1] = "";
+    if (regex_search(message.c_str(), m, e1)) {
+        strings[0] = m[0];
+    }
 
-    if (strings.size() != 2) {
-        cout<<"wrong command\n";
+    message = regex_replace(message, regex(strings[0]), "");
+
+    if (regex_search(message.c_str(), m, e2)) {
+        strings[1] = m[0];
+    }
+    if (strings[0] == "") {
+        cout << "wrong filename: " << strings[0] << endl;
         return;
     }
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<strings[0]<<endl;
+    if (strings[1] == "") {
+        cout << "wrong parameter: " << strings[1] << endl;
         return;
     }
-    if (regex_match(strings[1], regex(NUMBER_REGEXP))) {
-        string filename = "../bin/";
-        filename.append(strings[0].substr(1, strings[0].length() - 2));
-        ifstream fin(filename);
 
-        if (!fin.is_open()) {
-            int fd = open(filename.c_str(), O_RDWR | O_CREAT);
+    string filename = "../bin/";
+    filename.append(strings[0].substr(1, strings[0].length() - 2));
+    ifstream fin(filename);
 
-            int number = ceil((double)stoi(strings[1]) / (double)BLOCK_SIZE) * 2;
-            int half = number / 2;
-            block *b = new block[number];
+    if (!fin.is_open()) {
+        int fd = open(filename.c_str(), O_RDWR | O_CREAT);
 
-            for (int index = 0; index < half; index++) {
-                descriptor d;
-                b[index].freeSpace = 0;
-                memcpy(&b[index].value, &d, BLOCK_SIZE);
-            }
+        int number = ceil((double) stoi(strings[1]) / (double) BLOCK_SIZE) * 2;
+        int half = number / 2;
+        block *b = new block[number];
 
-            for (int index = 0; index < number; index++) {
-                b[index].blockIndex = index;
-                write(fd, &b[index], sizeof(b[index]));
-            }
-            close(fd);
-        } else {
-            fin.close();
-            cout << filename << " already exist\n";
-            return;
+        for (int index = 0; index < half; index++) {
+            descriptor d;
+            b[index].freeSpace = 0;
+            memcpy(&b[index].value, &d, BLOCK_SIZE);
         }
+
+        for (int index = 0; index < number; index++) {
+            b[index].blockIndex = index;
+            write(fd, &b[index], sizeof(b[index]));
+        }
+        close(fd);
     } else {
-        cout<<"wrong parameter: "<<strings[1]<<endl;
+        fin.close();
+        cout << filename << " already exist\n";
         return;
     }
 }

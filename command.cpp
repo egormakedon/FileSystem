@@ -3,22 +3,20 @@
 struct filesystem fs;
 
 void startCommand(string command) {
-    string commandType;
+    if (!regex_match(command, regex(DATA_INP_REGEXP))) {
+        cout<<"wrong command\n";
+        return;
+    }
+
+    int index = 0;
+    while (index < command.length() && command[index] != ' ') {
+        index++;
+    }
+
+    string commandType = command.substr(0, index);
     string message;
-
-    char ch = '@';
-    int chIndex = 0;
-
-    for (int index = 0; index < command.length(); index++) {
-        if (ch == '@' && command[index] != ' ') {
-            chIndex = index;
-            ch = command[index];
-        }
-        if (command[index] == ' ' && index != 0 && command[index - 1] != ' ') {
-            commandType = command.substr(chIndex, index - chIndex);
-            message = command.substr(index + 1, command.length());
-            break;
-        }
+    if (index != command.length()) {
+        message = command.substr(index + 1, command.length() - 1);
     }
 
     int key = -1;
@@ -31,7 +29,8 @@ void startCommand(string command) {
     if (commandType == "move") key = 5;
     if (commandType == "write") key = 6;
     if (commandType == "read") key = 7;
-    if (command == "exit") key = 8;
+    if (commandType == "ls") key = 9;
+    if (commandType == "exit") key = 8;
 
     commandFactory(key, message);
 }
@@ -66,6 +65,9 @@ void commandFactory(int key, string message) {
             break;
         case 7:
             read(message, fs);
+            break;
+        case 9:
+            ls(fs);
             break;
         case 8:
             exit(0);

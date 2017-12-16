@@ -11,5 +11,6 @@ void copy(string message, struct filesystem fs);
 void move(string message, struct filesystem fs);
 void write(string message, struct filesystem fs);
 void read(string message, struct filesystem fs);
+void ls(struct filesystem fs);
 
 #endif

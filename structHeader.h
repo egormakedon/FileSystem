@@ -17,9 +17,12 @@
 using namespace std;
 
 const int MAX_FILENAME_LENGTH = 36;
-const int BLOCK_SIZE = 46;
-const string FILE_NAME_REGEXP = "\".{1,36}\"";
-const string DATA_MESSAGE_REGEXP = "(\".+?\")|(\\s\".+\")";
+const int BLOCK_SIZE = 44;
+
+const string FILE_NAME_REGEXP = "\".{1,36}?\"";
+const string DATA_INP_REGEXP = "(^exit$)|(^ls$)|(^[\\w].+?\\s\".+?\"\\s\".+?\")|(^[\\w].+?\\s\".+?\"\\s\\d.+$)|(^[\\w].+?\\s\".+?\")";
+const string NUMBER_REGEXP = "\\d+";
+const string DATA = "\".+\"";
 
 #define EMPTY_FILE -2
 #define LAST_BLOCK -1

@@ -1,19 +1,10 @@
 #include "filecommand.h"
-#include <regex>
-#include <string>
-#include <iostream>
-
-using namespace std;
 
 void create(string message, struct filesystem fs) {
-//    vector<string> strings = takeArgs(message);
-//
-//    if (strings.size() != 1) {
-//        cout << "wrong command\n";
-//        return;
-//    }
+    cmatch m;
+    regex e1(FILE_NAME_REGEXP);
 
-    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
+    if (!regex_match(message.c_str(), m, e1)) {
         cout << "wrong filename: " << message << endl;
         return;
     }
@@ -57,17 +48,12 @@ void create(string message, struct filesystem fs) {
 
     close(fd);
 }
-
 void remove(string message, struct filesystem fs) {
-//    vector<string> strings = takeArgs(message);
-//
-//    if (strings.size() != 1) {
-//        cout<<"wrong command\n";
-//        return;
-//    }
+    cmatch m;
+    regex e1(FILE_NAME_REGEXP);
 
-    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<message<<endl;
+    if (!regex_match(message.c_str(), m, e1)) {
+        cout << "wrong filename: " << message << endl;
         return;
     }
 
@@ -80,17 +66,12 @@ void remove(string message, struct filesystem fs) {
 
     removeFunc(filename, fs);
 }
-
 void copy(string message, struct filesystem fs) {
-//    vector<string> strings = takeArgs(message);
-//
-//    if (strings.size() != 1) {
-//        cout<<"wrong command\n";
-//        return;
-//    }
+    cmatch m;
+    regex e1(FILE_NAME_REGEXP);
 
-    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<message<<endl;
+    if (!regex_match(message.c_str(), m, e1)) {
+        cout << "wrong filename: " << message << endl;
         return;
     }
 
@@ -127,29 +108,33 @@ void copy(string message, struct filesystem fs) {
     message1.insert(message1.length(), readFunc(filename, fs));
     message1.insert(message1.length(), "\"");
     write(message1, fs);
-    cout<<endl;
+    cout<<"\n";
 }
-
 void move(string message, struct filesystem fs) {
-    string strings[2];
-
     cmatch m;
-    regex e(DATA_MESSAGE_REGEXP);
+    regex e1(FILE_NAME_REGEXP);
 
-    int index1 = -1;
-    while (regex_search(message.c_str(), m, e)) {
-        ++index1;
-        strings[index1] = m[index1];
+    string strings[2];
+    strings[0] = "";
+    strings[1] = "";
+
+    if (regex_search(message.c_str(), m, e1)) {
+        strings[0] = m[0];
     }
 
-
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<strings[0]<<endl;
+    if (strings[0] == "") {
+        cout << "wrong filename: " << strings[0] << endl;
         return;
     }
 
-    if (!regex_match(strings[1], regex(FILE_NAME_REGEXP))) {
-        cout<<"wrong filename: "<<strings[1]<<endl;
+    message = regex_replace(message, regex(strings[0]), "");
+
+    if (regex_search(message.c_str(), m, e1)) {
+        strings[1] = m[0];
+    }
+
+    if (strings[1] == "") {
+        cout << "wrong filename: " << strings[1] << endl;
         return;
     }
 
@@ -193,28 +178,27 @@ void move(string message, struct filesystem fs) {
         index += sizeof(b);
     }
 }
-
 void write(string message, struct filesystem fs) {
-    string strings[2];
-
     cmatch m;
-    regex e(DATA_MESSAGE_REGEXP);
+    regex e1(FILE_NAME_REGEXP);
 
-    int index1 = -1;
-    while (regex_search(message.c_str(), m, e)) {
-        ++index1;
-        strings[index1] = m[index1];
+    string strings[2];
+    strings[0] = "";
+    strings[1] = "";
+
+    if (regex_search(message.c_str(), m, e1)) {
+        strings[0] = m[0];
     }
 
-
-    if (!regex_match(strings[0], regex(FILE_NAME_REGEXP))) {
+    if (strings[0] == "") {
         cout << "wrong filename: " << strings[0] << endl;
         return;
     }
 
-    if (!regex_match(strings[1], regex(DATA_MESSAGE_REGEXP))) {
-        cout << "wrong input data: " << strings[1] << endl;
-        return;
+    message = regex_replace(message, regex(strings[0]), "");
+
+    if (regex_search(message.c_str(), m, regex(DATA))) {
+        strings[1] = m[0];
     }
 
     string filename = strings[0].substr(1, strings[0].length() - 2);
@@ -227,16 +211,11 @@ void write(string message, struct filesystem fs) {
 
     writeFunc(filename, data, fs);
 }
-
 void read(string message, struct filesystem fs) {
-//    vector<string> strings = takeArgs(message);
-//
-//    if (strings.size() != 1) {
-//        cout<<"wrong command\n";
-//        return;
-//    }
+    cmatch m;
+    regex e1(FILE_NAME_REGEXP);
 
-    if (!regex_match(message, regex(FILE_NAME_REGEXP))) {
+    if (!regex_match(message.c_str(), m, e1)) {
         cout << "wrong filename: " << message << endl;
         return;
     }
@@ -249,4 +228,28 @@ void read(string message, struct filesystem fs) {
     }
 
     cout<<readFunc(filename, fs);
+    cout<<"\n";
+}
+void ls(struct filesystem fs) {
+    string fileSystemName = fs.fileSystemName;
+    int fd = open(fileSystemName.c_str(), O_RDWR);
+    int len = lseek(fd, 0, SEEK_END);
+
+    int index = 0;
+    while (index < len / 2) {
+        block b;
+        lseek(fd, index, SEEK_SET);
+        read(fd, &b, sizeof(b));
+
+        descriptor d;
+        memcpy(&d, &b.value, BLOCK_SIZE);
+
+        if (d.isFree == false) {
+            cout<<d.filename<<endl;
+        }
+
+        index += sizeof(b);
+    }
+
+    close(fd);
 }

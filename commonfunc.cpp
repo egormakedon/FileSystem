@@ -1,12 +1,6 @@
 #include <boost/algorithm/string/classification.hpp>
 #include "commonfunc.h"
 
-vector<string> takeArgs(string message) {
-    vector<string> strings;
-    boost::split(strings, message, boost::is_any_of(" "));
-    return strings;
-}
-
 bool isFileExist(string filename, struct filesystem fs) {
     bool result = false;
     string fileSystemName = fs.fileSystemName;
@@ -35,7 +29,6 @@ bool isFileExist(string filename, struct filesystem fs) {
     close(fd);
     return result;
 }
-
 bool isFreeFileExist(struct filesystem fs) {
     bool result = false;
     string fileSystemName = fs.fileSystemName;
@@ -62,7 +55,6 @@ bool isFreeFileExist(struct filesystem fs) {
     close(fd);
     return result;
 }
-
 void removeFunc(string filename, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -108,7 +100,6 @@ void removeFunc(string filename, struct filesystem fs) {
         return;
     }
 }
-
 void clearBlockFunc(int firstBlockIndex, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -141,7 +132,6 @@ void clearBlockFunc(int firstBlockIndex, struct filesystem fs) {
     }
     close(fd);
 }
-
 void writeFunc(string filename, string message, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -187,7 +177,6 @@ void writeFunc(string filename, string message, struct filesystem fs) {
 
     write(message, message.length(), message.length(), firstBlockIndex, fs);
 }
-
 int findFreeBlock(struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -207,7 +196,6 @@ int findFreeBlock(struct filesystem fs) {
     close(fd);
     return -1;
 }
-
 void write(string message, int mesLen, int remainLen, int blocIndex, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -259,7 +247,6 @@ void write(string message, int mesLen, int remainLen, int blocIndex, struct file
         }
     }
 }
-
 string readFunc(string filename, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -291,7 +278,6 @@ string readFunc(string filename, struct filesystem fs) {
 
     return read(firstBlockIndex, fs, "");
 }
-
 string read(int blocIndex, struct filesystem fs, string result) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -314,7 +300,6 @@ string read(int blocIndex, struct filesystem fs, string result) {
     if (b.nextBlockIndex != LAST_BLOCK) {
         read(b.nextBlockIndex, fs, result);
     } else {
-        //result.insert(result.length(), "\n");
         return result;
     }
 }
