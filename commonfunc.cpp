@@ -260,7 +260,7 @@ void write(string message, int mesLen, int remainLen, int blocIndex, struct file
     }
 }
 
-void readFunc(string filename, struct filesystem fs) {
+string readFunc(string filename, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
     int len = lseek(fd, 0, SEEK_END);
@@ -286,13 +286,13 @@ void readFunc(string filename, struct filesystem fs) {
 
     if (firstBlockIndex == EMPTY_FILE) {
         cout<<filename<<" is empty\n";
-        return;
+        return "";
     }
 
-    read(firstBlockIndex, fs);
+    return read(firstBlockIndex, fs, "");
 }
 
-void read(int blocIndex, struct filesystem fs) {
+string read(int blocIndex, struct filesystem fs, string result) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
     int len = lseek(fd, 0, SEEK_END);
@@ -309,12 +309,12 @@ void read(int blocIndex, struct filesystem fs) {
     }
     close(fd);
 
-    cout<<b.value;
+    result.insert(result.length(), b.value);
 
     if (b.nextBlockIndex != LAST_BLOCK) {
-        read(b.nextBlockIndex, fs);
+        read(b.nextBlockIndex, fs, result);
     } else {
-        cout<<"\n";
-        return;
+        result.insert(result.length(), "\n");
+        return result;
     }
 }

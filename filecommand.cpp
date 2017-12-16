@@ -101,7 +101,27 @@ void copy(string message, struct filesystem fs) {
         return;
     }
 
-    //// проверка на имя, сначала получить всю инфу с файла, проверит хватает ли места для копирования, копировать
+    string newFileName = filename;
+    while (true) {
+        if (newFileName.length() > MAX_FILENAME_LENGTH) {
+            cout<<"failed copy\n";
+            return;
+        }
+        newFileName = newFileName.insert(newFileName.length(), "0");
+        if (!isFileExist(newFileName, fs) && newFileName.length() <= MAX_FILENAME_LENGTH) {
+            break;
+        }
+    }
+
+    cout<<"new file: "<<newFileName<<endl;
+    newFileName = newFileName.insert(0, "\"");
+    newFileName = newFileName.insert(newFileName.length(), "\"");
+    create(newFileName, fs);
+    string message1 = newFileName;
+    message1.insert(message1.length(), " \"");
+    message1.insert(message1.length(), readFunc(filename, fs));
+    message1.insert(message1.length(), "\"");
+    write(message1, fs);
 }
 
 void move(string message, struct filesystem fs) {
@@ -212,5 +232,5 @@ void read(string message, struct filesystem fs) {
         return;
     }
 
-    readFunc(filename, fs);
+    cout<<readFunc(filename, fs);
 }
