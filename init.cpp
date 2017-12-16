@@ -18,11 +18,11 @@ void init(string message) {
         strings[1] = m[0];
     }
     if (strings[0] == "") {
-        cout << "wrong filename: " << strings[0] << endl;
+        cout << "wrong filename" << endl;
         return;
     }
     if (strings[1] == "") {
-        cout << "wrong parameter: " << strings[1] << endl;
+        cout << "wrong parameter" << endl;
         return;
     }
 

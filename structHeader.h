@@ -20,7 +20,7 @@ const int MAX_FILENAME_LENGTH = 36;
 const int BLOCK_SIZE = 44;
 
 const string FILE_NAME_REGEXP = "\".{1,36}?\"";
-const string DATA_INP_REGEXP = "(^exit$)|(^ls$)|(^[\\w].+?\\s\".+?\"\\s\".+?\")|(^[\\w].+?\\s\".+?\"\\s\\d.+$)|(^[\\w].+?\\s\".+?\")";
+const string DATA_INP_REGEXP = "(^exit$)|(^ls$)|(^[\\w]+?\\s\".+?\"\\s\".+?\"$)|(^[\\w]+?\\s\".+?\"\\s\\d+$)|(^[\\w]+?\\s\".+?\"$)";
 const string NUMBER_REGEXP = "\\d+";
 const string DATA = "\".+\"";
 
