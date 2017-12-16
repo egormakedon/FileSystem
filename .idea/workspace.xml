@@ -13,8 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce7005a4-fee3-4f5a-aaed-8c0bbaa70cd6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/commonfunc.cpp" afterPath="$PROJECT_DIR$/commonfunc.cpp" />
-      <change beforePath="$PROJECT_DIR$/commonfunc.h" afterPath="$PROJECT_DIR$/commonfunc.h" />
-      <change beforePath="$PROJECT_DIR$/filecommand.cpp" afterPath="$PROJECT_DIR$/filecommand.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/filecommand.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="42" column="76" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="76" />
+              <caret line="42" column="76" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="76" />
               <folding>
                 <element signature="e#1320#1854#0" expanded="false" />
                 <element signature="e#2575#4160#0" expanded="false" />
@@ -43,8 +41,8 @@
       <file leaf-file-name="commonfunc.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commonfunc.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="293" column="14" lean-forward="true" selection-start-line="293" selection-start-column="14" selection-end-line="293" selection-end-column="14" />
+            <state relative-caret-position="73">
+              <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
                 <element signature="e#78#228#0" expanded="false" />
@@ -52,7 +50,7 @@
                 <element signature="e#896#1463#0" expanded="false" />
                 <element signature="e#1465#2746#0" expanded="false" />
                 <element signature="e#2748#3700#0" expanded="false" />
-                <element signature="e#6570#7051#0" expanded="false" />
+                <element signature="e#5094#5575#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -140,11 +138,6 @@
               <item name="FileSystem" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="FileSystem" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FileSystem" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="FileSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -209,7 +202,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80554000" />
+    <option name="totallyTimeSpent" value="81526000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1922" height="1049" extended-state="6" />
@@ -221,7 +214,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38048247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23903508" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33004385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -243,7 +236,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -298,7 +291,7 @@
             <element signature="e#896#1463#0" expanded="false" />
             <element signature="e#1465#2746#0" expanded="false" />
             <element signature="e#2748#3700#0" expanded="false" />
-            <element signature="e#6570#7051#0" expanded="false" />
+            <element signature="e#5094#5575#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -359,7 +352,7 @@
             <element signature="e#896#1463#0" expanded="false" />
             <element signature="e#1465#2746#0" expanded="false" />
             <element signature="e#2748#3700#0" expanded="false" />
-            <element signature="e#6570#7051#0" expanded="false" />
+            <element signature="e#5094#5575#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -401,7 +394,7 @@
             <element signature="e#896#1463#0" expanded="false" />
             <element signature="e#1465#2746#0" expanded="false" />
             <element signature="e#2748#3700#0" expanded="false" />
-            <element signature="e#6570#7051#0" expanded="false" />
+            <element signature="e#5094#5575#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -645,7 +638,7 @@
     <entry file="file://$PROJECT_DIR$/filecommand.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="42" column="76" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="76" />
+          <caret line="42" column="76" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="76" />
           <folding>
             <element signature="e#1320#1854#0" expanded="false" />
             <element signature="e#2575#4160#0" expanded="false" />
@@ -663,8 +656,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commonfunc.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="293" column="14" lean-forward="true" selection-start-line="293" selection-start-column="14" selection-end-line="293" selection-end-column="14" />
+        <state relative-caret-position="73">
+          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
             <element signature="e#78#228#0" expanded="false" />
@@ -672,7 +665,7 @@
             <element signature="e#896#1463#0" expanded="false" />
             <element signature="e#1465#2746#0" expanded="false" />
             <element signature="e#2748#3700#0" expanded="false" />
-            <element signature="e#6570#7051#0" expanded="false" />
+            <element signature="e#5094#5575#0" expanded="false" />
           </folding>
         </state>
       </provider>

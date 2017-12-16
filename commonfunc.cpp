@@ -186,58 +186,6 @@ void writeFunc(string filename, string message, struct filesystem fs) {
     }
 
     write(message, message.length(), message.length(), firstBlockIndex, fs);
-
-
-
-////
-////
-////
-////
-////
-////
-////    /////////////////////
-////
-////    block prevBlock;
-////    if (firstBlockIndex == LAST_BLOCK) {
-////        int offset = findFreeBlock(fs);
-////        if (offset == -1) {
-////            cout << "filesystem is completed\n";
-////            return;
-////        } else {
-////            fd = open(fileSystemName.c_str(), O_RDWR);
-////            block firstBlock;
-////            lseek(fd, offset, SEEK_SET);
-////            read(fd, &firstBlock, sizeof(firstBlock));
-////
-////            firstBlockIndex = firstBlock.blockIndex;
-////            d.firstBlockIndex = firstBlockIndex;
-////            memcpy(&b.value, &d, BLOCK_SIZE);
-////            lseek(fd, index, SEEK_SET);
-////            write(fd, &b, sizeof(b));
-////            close(fd);
-////            prevBlock = firstBlock;
-////        }
-////    } else {
-////        fd = open(fileSystemName.c_str(), O_RDWR);
-////        index = len / 2;
-////        while (index < len) {
-////            lseek(fd, index, SEEK_SET);
-////            read(fd, &prevBlock, sizeof(prevBlock));
-////            if (prevBlock.blockIndex == firstBlockIndex) {
-////                break;
-////            }
-////            index += sizeof(prevBlock);
-////        }
-////        close(fd);
-//    }
-//
-//    int messageLength = message.length();
-//    int remainBytes = message.length();
-//    while (remainBytes != 0) {
-//        char ch = message.c_str()[messageLength - remainBytes];
-//
-//
-//    }
 }
 
 int findFreeBlock(struct filesystem fs) {
@@ -276,13 +224,10 @@ void write(string message, int mesLen, int remainLen, int blocIndex, struct file
         index += sizeof(b);
     }
 
-    while (b.freeSpace > 0 || remainLen != 0) {
-        string s;
-        s.append(b.value);
-        s += message.c_str()[mesLen - remainLen];
+    while (b.freeSpace > 0 && remainLen != 0) {
+        strcpy(b.value, &message.c_str()[mesLen - remainLen]);
         remainLen--;
         b.freeSpace--;
-        memcpy(&b.value, s.c_str(), sizeof(s.c_str()));
         lseek(fd, index, SEEK_SET);
         write(fd, &b, sizeof(b));
     }
@@ -298,7 +243,7 @@ void write(string message, int mesLen, int remainLen, int blocIndex, struct file
     } else {
         int offset = findFreeBlock(fs);
         if (offset == -1) {
-            cout << "filesystem is completed: was written\copied not all data\n";
+            cout << "filesystem is completed: was written\\copied not all data\n";
             return;
         } else {
             fd = open(fileSystemName.c_str(), O_RDWR);
