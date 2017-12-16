@@ -225,7 +225,8 @@ void write(string message, int mesLen, int remainLen, int blocIndex, struct file
     }
 
     while (b.freeSpace > 0 && remainLen != 0) {
-        strcpy(b.value, &message.c_str()[mesLen - remainLen]);
+        char ch = message.c_str()[mesLen - remainLen];
+        b.value[BLOCK_SIZE - b.freeSpace] = ch;
         remainLen--;
         b.freeSpace--;
         lseek(fd, index, SEEK_SET);
@@ -256,5 +257,64 @@ void write(string message, int mesLen, int remainLen, int blocIndex, struct file
             close(fd);
             write(message, mesLen, remainLen, nextBlock.blockIndex, fs);
         }
+    }
+}
+
+void readFunc(string filename, struct filesystem fs) {
+    string fileSystemName = fs.fileSystemName;
+    int fd = open(fileSystemName.c_str(), O_RDWR);
+    int len = lseek(fd, 0, SEEK_END);
+
+    int index = 0;
+    int firstBlockIndex;
+    while (index < len / 2) {
+        block b;
+        descriptor d;
+        lseek(fd, index, SEEK_SET);
+        read(fd, &b, sizeof(b));
+        memcpy(&d, &b.value, BLOCK_SIZE);
+
+        if (d.isFree == false) {
+            if (strcmp(d.filename, filename.c_str()) == 0) {
+                firstBlockIndex = d.firstBlockIndex;
+                break;
+            }
+        }
+        index += sizeof(b);
+    }
+    close(fd);
+
+    if (firstBlockIndex == EMPTY_FILE) {
+        cout<<filename<<" is empty\n";
+        return;
+    }
+
+    read(firstBlockIndex, fs);
+}
+
+void read(int blocIndex, struct filesystem fs) {
+    string fileSystemName = fs.fileSystemName;
+    int fd = open(fileSystemName.c_str(), O_RDWR);
+    int len = lseek(fd, 0, SEEK_END);
+
+    int index = len / 2;
+    block b;
+    while (index < len) {
+        lseek(fd, index, SEEK_SET);
+        read(fd, &b, sizeof(b));
+        if (b.blockIndex == blocIndex) {
+            break;
+        }
+        index += sizeof(b);
+    }
+    close(fd);
+
+    cout<<b.value;
+
+    if (b.nextBlockIndex != LAST_BLOCK) {
+        read(b.nextBlockIndex, fs);
+    } else {
+        cout<<"\n";
+        return;
     }
 }

@@ -13,5 +13,7 @@ void clearBlockFunc(int firstBlockIndex, struct filesystem fs);
 void writeFunc(string filename, string message, struct filesystem fs);
 int findFreeBlock(struct filesystem fs);
 void write(string message, int mesLen, int remainLen, int blocIndex, struct filesystem fs);
+void readFunc(string filename, struct filesystem fs);
+void read(int blocIndex, struct filesystem fs);
 
 #endif

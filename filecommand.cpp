@@ -212,5 +212,5 @@ void read(string message, struct filesystem fs) {
         return;
     }
 
-    ///// read
+    readFunc(filename, fs);
 }
