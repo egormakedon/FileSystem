@@ -182,13 +182,14 @@ void write(string message, struct filesystem fs) {
     }
 
     string filename = strings[0].substr(1, strings[0].length() - 2);
+    string data = strings[1].substr(1, strings[1].length() - 2);
 
     if (!isFileExist(filename, fs)) {
         cout << filename << " doesn't exist\n";
         return;
     }
 
-    //// kak v copy
+    writeFunc(filename, data, fs);
 }
 
 void read(string message, struct filesystem fs) {

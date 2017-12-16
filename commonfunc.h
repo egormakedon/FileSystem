@@ -10,5 +10,8 @@ bool isFileExist(string filename, struct filesystem fs);
 bool isFreeFileExist(struct filesystem fs);
 void removeFunc(string filename, struct filesystem fs);
 void clearBlockFunc(int firstBlockIndex, struct filesystem fs);
+void writeFunc(string filename, string message, struct filesystem fs);
+int findFreeBlock(struct filesystem fs);
+void write(string message, int mesLen, int remainLen, int blocIndex, struct filesystem fs);
 
 #endif
