@@ -36,7 +36,7 @@ void create(string message, struct filesystem fs) {
 
         if (d.isFree == true) {
             d.isFree = false;
-            memcpy(&d.filename, filename.c_str(), sizeof(filename.c_str()));
+            memcpy(&d.filename, filename.c_str(), filename.length());
             memcpy(&b.value, &d, BLOCK_SIZE);
             lseek(fd, index, SEEK_SET);
             write(fd, &b, sizeof(b));
