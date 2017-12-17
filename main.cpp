@@ -6,6 +6,7 @@ int main() {
         char command[200];
         cin.clear();
         cin.getline(command, 200);
+        cin.clear();
         startCommand(command);
     }
 }

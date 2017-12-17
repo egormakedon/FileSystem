@@ -42,10 +42,8 @@ void create(string message, struct filesystem fs) {
             write(fd, &b, sizeof(b));
             break;
         }
-
         index += sizeof(b);
     }
-
     close(fd);
 }
 void remove(string message, struct filesystem fs) {
@@ -108,7 +106,6 @@ void copy(string message, struct filesystem fs) {
     message1.insert(message1.length(), readFunc(filename, fs));
     message1.insert(message1.length(), "\"");
     write(message1, fs);
-    cout<<"\n";
 }
 void move(string message, struct filesystem fs) {
     cmatch m;
@@ -166,7 +163,7 @@ void move(string message, struct filesystem fs) {
 
         if (d.isFree == false) {
             if (strcmp(d.filename, filename.c_str()) == 0) {
-                memcpy(&d.filename, newFileName.c_str(), sizeof(newFileName.c_str()));
+                memcpy(&d.filename, newFileName.c_str(), newFileName.length());
                 memcpy(&b.value, &d, BLOCK_SIZE);
                 lseek(fd, index, SEEK_SET);
                 write(fd, &b, sizeof(b));
@@ -174,7 +171,6 @@ void move(string message, struct filesystem fs) {
                 break;
             }
         }
-
         index += sizeof(b);
     }
 }
@@ -247,9 +243,7 @@ void ls(struct filesystem fs) {
         if (d.isFree == false) {
             cout<<d.filename<<endl;
         }
-
         index += sizeof(b);
     }
-
     close(fd);
 }

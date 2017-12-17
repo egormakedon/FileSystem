@@ -22,10 +22,8 @@ bool isFileExist(string filename, struct filesystem fs) {
                 break;
             }
         }
-
         index += sizeof(b);
     }
-
     close(fd);
     return result;
 }
@@ -48,13 +46,12 @@ bool isFreeFileExist(struct filesystem fs) {
             result = true;
             break;
         }
-
         index += sizeof(b);
     }
-
     close(fd);
     return result;
 }
+
 void removeFunc(string filename, struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
@@ -78,7 +75,6 @@ void removeFunc(string filename, struct filesystem fs) {
                 break;
             }
         }
-
         index += sizeof(b);
     }
 
@@ -127,7 +123,6 @@ void clearBlockFunc(int firstBlockIndex, struct filesystem fs) {
                 continue;
             }
         }
-
         index += sizeof(b);
     }
     close(fd);
@@ -174,8 +169,7 @@ void writeFunc(string filename, string message, struct filesystem fs) {
             close(fd);
         }
     }
-
-    write(message, message.length(), message.length(), firstBlockIndex, fs);
+    write(message, firstBlockIndex, fs);
 }
 int findFreeBlock(struct filesystem fs) {
     string fileSystemName = fs.fileSystemName;
@@ -196,55 +190,60 @@ int findFreeBlock(struct filesystem fs) {
     close(fd);
     return -1;
 }
-void write(string message, int mesLen, int remainLen, int blocIndex, struct filesystem fs) {
+void write(string message, int blocIndex, struct filesystem fs) {
+    int mesLen = message.length();
+    int remainLen = message.length();
+
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
     int len = lseek(fd, 0, SEEK_END);
 
     int index = len / 2;
-    block b;
     while (index < len) {
+        block b;
         lseek(fd, index, SEEK_SET);
         read(fd, &b, sizeof(b));
         if (b.blockIndex == blocIndex) {
-            break;
+            while (b.freeSpace > 0 && remainLen != 0) {
+                char ch = message.c_str()[mesLen - remainLen];
+                b.value[BLOCK_SIZE - b.freeSpace] = ch;
+                remainLen--;
+                b.freeSpace--;
+                lseek(fd, index, SEEK_SET);
+                write(fd, &b, sizeof(b));
+            }
+
+            if (remainLen == 0) {
+                cout << "written successful\n";
+                close(fd);
+                return;
+            }
+
+            if (b.nextBlockIndex != LAST_BLOCK) {
+                blocIndex = b.nextBlockIndex;
+                index = len / 2;
+                continue;
+            } else {
+                int offset = findFreeBlock(fs);
+                if (offset == -1) {
+                    cout << "filesystem is completed: was written\\copied not all data\n";
+                    close(fd);
+                    return;
+                } else {
+                    block nextBlock;
+                    lseek(fd, offset, SEEK_SET);
+                    read(fd, &nextBlock, sizeof(nextBlock));
+                    b.nextBlockIndex = nextBlock.blockIndex;
+                    lseek(fd, index, SEEK_SET);
+                    write(fd, &b, sizeof(b));
+                    blocIndex = nextBlock.blockIndex;
+                    index = len / 2;
+                    continue;
+                }
+
+            }
         }
         index += sizeof(b);
-    }
-
-    while (b.freeSpace > 0 && remainLen != 0) {
-        char ch = message.c_str()[mesLen - remainLen];
-        b.value[BLOCK_SIZE - b.freeSpace] = ch;
-        remainLen--;
-        b.freeSpace--;
-        lseek(fd, index, SEEK_SET);
-        write(fd, &b, sizeof(b));
-    }
-
-    if (remainLen == 0) {
-        cout<<"written successful\n";
-        return;
-    }
-    close(fd);
-
-    if (b.nextBlockIndex != LAST_BLOCK) {
-        write(message, mesLen, remainLen, b.nextBlockIndex, fs);
-    } else {
-        int offset = findFreeBlock(fs);
-        if (offset == -1) {
-            cout << "filesystem is completed: was written\\copied not all data\n";
-            return;
-        } else {
-            fd = open(fileSystemName.c_str(), O_RDWR);
-            block nextBlock;
-            lseek(fd, offset, SEEK_SET);
-            read(fd, &nextBlock, sizeof(nextBlock));
-            b.nextBlockIndex = nextBlock.blockIndex;
-            lseek(fd, index, SEEK_SET);
-            write(fd, &b, sizeof(b));
-            close(fd);
-            write(message, mesLen, remainLen, nextBlock.blockIndex, fs);
-        }
     }
 }
 string readFunc(string filename, struct filesystem fs) {
@@ -272,34 +271,37 @@ string readFunc(string filename, struct filesystem fs) {
     close(fd);
 
     if (firstBlockIndex == EMPTY_FILE) {
-        cout<<filename<<" is empty\n";
-        return "";
+        string result;
+        result.insert(result.length(), filename.c_str());
+        result.insert(result.length(), " is empty");
+        return result;
     }
 
-    return read(firstBlockIndex, fs, "");
+    return read(firstBlockIndex, fs);
 }
-string read(int blocIndex, struct filesystem fs, string result) {
+string read(int blocIndex, struct filesystem fs) {
+    string result;
     string fileSystemName = fs.fileSystemName;
     int fd = open(fileSystemName.c_str(), O_RDWR);
     int len = lseek(fd, 0, SEEK_END);
 
     int index = len / 2;
-    block b;
     while (index < len) {
+        block b;
         lseek(fd, index, SEEK_SET);
         read(fd, &b, sizeof(b));
         if (b.blockIndex == blocIndex) {
-            break;
+            result.insert(result.length(), b.value);
+            if (b.nextBlockIndex != LAST_BLOCK) {
+                blocIndex = b.nextBlockIndex;
+                index = len / 2;
+                continue;
+            } else {
+                break;
+            }
         }
         index += sizeof(b);
     }
     close(fd);
-
-    result.insert(result.length(), b.value);
-
-    if (b.nextBlockIndex != LAST_BLOCK) {
-        read(b.nextBlockIndex, fs, result);
-    } else {
-        return result;
-    }
+    return result;
 }
